@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+    resources :friendships, :except => [:index,:show,:create,:update,:edit,:new, :destroy] do   
+      collection do
+        post "get_friends"
+      end
+    end
   # Example resource route with options:
   #   resources :products do
   #     member do

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140424084509) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "address"
+    t.string   "display_picture"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
