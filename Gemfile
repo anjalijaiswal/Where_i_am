@@ -23,11 +23,15 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
+#Google Cloud Messaging for Android on Rails
+gem 'simple_gcm'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
 gem 'awesome_print', group: :development
 
+gem 'activeadmin', github: 'gregbell/active_admin'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,3 +44,12 @@ gem 'awesome_print', group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+#https://github.com/leobessa/simple_gcm   ====currently using
+#API_key = AIzaSyARt_g9IiwbHcwtwBaZv7asJReSOMQLAIM
+#project Id = 894190066931
+
+# ref for push notification help
+# server end
+# http://www.androidhive.info/2012/10/android-push-notifications-using-google-cloud-messaging-gcm-php-and-mysql/
+# device end
+# http://fundroiding.wordpress.com/2012/06/29/google-cloud-messaging-for-android-gcm-simple-tutorial/

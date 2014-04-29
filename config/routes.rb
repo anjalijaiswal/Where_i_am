@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
         post "get_friends"
       end
     end
-    resources :users, except => [:index, :show, :create, :update, :edit, :new, :destroy] do
+    resources :users, :except => [:index, :show, :create, :update, :edit, :new, :destroy] do
       collection do
         post "registration"
         post "login"
