@@ -1,1 +1,2 @@
-json.registration @user
+json.report @result
+

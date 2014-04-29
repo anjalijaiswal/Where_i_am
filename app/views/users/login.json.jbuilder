@@ -1,1 +1,1 @@
-json.login @user
+json.login @result
