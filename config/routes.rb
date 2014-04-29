@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     resources :friendships, :except => [:index,:show,:create,:update,:edit,:new, :destroy] do   
       collection do
         post "get_friends"
+        post "add_friend"
+
       end
     end
     resources :users, :except => [:index, :show, :create, :update, :edit, :new, :destroy] do
