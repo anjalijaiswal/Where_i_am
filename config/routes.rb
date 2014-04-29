@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         post "get_friends"
       end
     end
-    resources :users, except => [:index, :show, :create, :update, :edit, :new, :destroy] do
+    resources :users, :except => [:index, :show, :create, :update, :edit, :new, :destroy] do
       collection do
         post "registration"
         post "login"
