@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       collection do
         post "registration"
         post "login"
+        post "logout"
       end
     end
   # Example resource route with options:

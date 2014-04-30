@@ -10,11 +10,22 @@ class UsersController < ApplicationController
     end
 
 	def login
-		@authenticate_user=User.find_by_username_and_password(params[:username],params[:password])
-		 if @authenticate_user.present?
-		 	@result="login successfully"
-         else
-            @result="login unsuccessfully"
-         end 
-	end
+    @user = User.authenticate(params[:username], params[:password])
+    if @user.blank?
+      render json: {:message => "Invalid Login", :response_code => 1101} unless params[:username].nil?
+      #render json: {:message => "Invalid Login", :response_code => 1100} unless params[:password].nil?
+    elsif @user.api_key.present?
+      render json: {:message => "Already Signed In", :response_code => 0111}
+      return false             
+    else
+        @user.create_api_key
+    end  
+    end
+
+  def logout
+    if current_user.present?
+      @status = current_user.api_key.destroy if current_user.api_key.access_token == request.headers["token"] 
+    end
+  end
+
 end
