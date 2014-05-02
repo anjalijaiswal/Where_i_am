@@ -24,9 +24,10 @@ class UsersController < ApplicationController
     end
 
   def logout
-    if current_user.present?
-      @status = current_user.api_key.destroy if current_user.api_key.access_token == request.headers["token"] 
-    end
+    ApiKey.destroy_all
+    # if current_user.present?
+    #   @status = current_user.api_key.destroy if current_user.api_key.access_token == request.headers["token"] 
+    # end
   end
 
 end
