@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 	def self.authenticate(username="", password="")
         user = User.where("username = ? && password = ?", username, password).take
-     	if user 
+     	if user.present? 
         	return user
         else
         	return false
@@ -22,6 +22,6 @@ end
 
 #http://localhost:3000/friendships/get_friends.json?
 #http://localhost:3000/friendships/add_friend.json? {"friend_id":2}
-#http://localhost:3000/users/registration.json?
+#http://localhost:3000/users/registration.json? {"username":"bijuv", "password":"1234567"....}
 #http://localhost:3000/users/login.json? {"username":"bijuv", "password":"1234567"}
 #http://localhost:3000/users/logout.json?

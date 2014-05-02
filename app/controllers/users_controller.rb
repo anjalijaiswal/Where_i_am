@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       return false             
     else
         @user.create_api_key
+        @result = @user.api_key.access_token
     end  
     end
 
