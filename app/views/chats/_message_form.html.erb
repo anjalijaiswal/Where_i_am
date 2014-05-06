@@ -1,0 +1,5 @@
+<%=form_tag(:controller => "chats", :action => "create") do %>
+  <%= label_tag(:message, "What are you doing?") %><br />
+  <%= text_area_tag(:message, nil, :size => "40x3") %><br /> 
+  <%= submit_tag("Update") %>
+<% end %>
