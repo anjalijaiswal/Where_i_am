@@ -21,4 +21,8 @@ class FriendshipsController < ApplicationController
       end
     end
   end
+
+  def save_location
+
+  end
 end
