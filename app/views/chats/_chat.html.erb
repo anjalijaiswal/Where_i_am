@@ -1,2 +1,2 @@
-<p><b><%= "Posted #{time_ago_in_words(chat.created_at)} ago" if chat.created_at.present? %></b></p>
+<p><b><%= "Posted #{time_ago_in_words(chat.created_at)} ago by #{User.find(chat.user_id).username}" if chat.created_at.present? %></b></p>
 <p><%= chat.message %></p>

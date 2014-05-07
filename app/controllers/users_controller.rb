@@ -9,22 +9,28 @@ class UsersController < ApplicationController
        end
     end
 
+
 	def login
     @user = User.authenticate(params[:username], params[:password])
     if @user.blank?
-      render json: {:message => "Invalid Login", :response_code => 1101} unless params[:username].nil?
-      #render json: {:message => "Invalid Login", :response_code => 1100} unless params[:password].nil?
+      # temp blocked =====>> render json: {:message => "Invalid Login", :response_code => 1101} unless params[:username].nil?
+      redirect_to(chats_chatting_path,:notice => 'Invalid Entry')
+
     elsif @user.api_key.present?
       render json: {:message => "Already Signed In", :response_code => 0111}
       return false             
     else
-        @user.create_api_key
-        @result = @user.api_key.access_token
+        session[:current_user_id] = @user.id
+        redirect_to chats_chatting_path
+        # Block temporary commented 
+        # @user.create_api_key
+        # @result = @user.api_key.access_token
     end  
     end
 
   def logout
-    ApiKey.destroy_all
+    session[:current_user_id] = nil
+    redirect_to chats_chatting_path
     # if current_user.present?
     #   @status = current_user.api_key.destroy if current_user.api_key.access_token == request.headers["token"] 
     # end

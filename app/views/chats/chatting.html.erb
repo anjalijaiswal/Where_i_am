@@ -1,4 +1,26 @@
-<%= render :partial => "message_form" %>
-<div id="posts">
-	<%= render :partial => @chats %>
-</div>
+<p id="notice" ><%= notice %></p>
+<% if session[:current_user_id].present? %>
+	<%= button_to "logout", logout_users_path %>
+	<%= "#{User.find(session[:current_user_id]).first_name} friends"%></br>
+	================= </br>
+	<% @me.friends.each do |friend|%>
+		<%="#{friend.first_name} with id #{friend.id}"%> </br>
+	<% end %>
+	<% @me.inverse_friends.each do |friend|%>
+	<%= "#{friend.first_name} with id #{friend.id}" %> </br>
+	<% end %>
+	================= </br>
+	<div id="posts">
+		<%= render :partial => @chats %>
+		<%= render :partial => @friends_chat %>
+	</div>
+	<%= render :partial => "message_form" %>
+	<% else %>
+	  <%=form_tag(:controller => "users", :action => "login") do %>
+	  <%= label_tag("username") %> 
+	  <%= text_field_tag(:username, nil) %><br />
+	  <%= label_tag("password") %> 
+	  <%= password_field_tag(:password, nil ) %><br /> 
+	  <%= submit_tag("login") %>
+	<% end %>
+<% end %>
