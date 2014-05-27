@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         post "registration"
         post "login"
         post "logout"
+        post "fetch_contacts"
       end
     end
   # Example resource route with options:

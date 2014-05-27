@@ -24,10 +24,14 @@ class UsersController < ApplicationController
     end
 
   def logout
-    ApiKey.destroy_all
+    ApiKey.where(:user_id=>params[:user_id]).first.destroy
     # if current_user.present?
     #   @status = current_user.api_key.destroy if current_user.api_key.access_token == request.headers["token"] 
     # end
+  end
+
+  def fetch_contacts
+    puts "===============#{params[:contacts]}"
   end
 
 end
