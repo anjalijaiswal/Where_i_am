@@ -12,9 +12,9 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: 5
+  pool: 
   username: root
-  password: 
+  password: mahakal
   host: localhost
 
 development:

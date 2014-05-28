@@ -10,7 +10,7 @@ class FriendshipsController < ApplicationController
         if @friend.save!
         	@result= "added"
         else	
-        	@result= "we both r not friend of own"
+        	@result= " not added"
         end 	 
    end
 

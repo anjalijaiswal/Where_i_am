@@ -26,6 +26,8 @@ Rails.application.routes.draw do
       collection do
         post "registration"
         post "login"
+        post "set_location"
+        post "get_location"
       end
     end
   # Example resource route with options:
