@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430095600) do
+ActiveRecord::Schema.define(version: 20140714074113) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -55,6 +55,14 @@ ActiveRecord::Schema.define(version: 20140430095600) do
 
   add_index "api_keys", ["user_id"], name: "index_api_keys_on_user_id", using: :btree
 
+  create_table "contacts", force: true do |t|
+    t.string   "name"
+    t.string   "number"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "friendships", force: true do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
@@ -70,7 +78,6 @@ ActiveRecord::Schema.define(version: 20140430095600) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "address"
-    t.string   "display_picture"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
