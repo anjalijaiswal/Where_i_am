@@ -1,0 +1,3 @@
+json.my_location_longitude @my_location.longitude
+json.my_location_latitude @my_location.latitude
+json.friends_location @friends_location
