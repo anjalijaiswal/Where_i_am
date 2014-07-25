@@ -43,7 +43,13 @@ class UsersController < ApplicationController
   end
 
   def fetch_contacts
-    puts "===============#{params[:contacts]}"
+     puts "===============#{params}"
+
+    @api_key=ApiKey.find_by_access_token(params[:api_key])
+    @user=@api_key.user
+    puts ".................................#{@user.username}"
+    @contact = @user.contacts.create(params[:name],params[:number])
+   
   end
 
 end

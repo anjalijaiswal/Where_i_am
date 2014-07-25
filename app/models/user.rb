@@ -10,10 +10,13 @@ end
 
 =======
 	has_one :api_key, dependent: :destroy
+	has_many :contacts
 	# implemented scope for the understanding purpose.
 	scope :pass, -> { where(password: 1234567) }
 	scope :other_friends_only, -> { joins(:friends)}
 
+	
+	
 	def self.authenticate(username="", password="")
         user = User.where("username = ? && password = ?", username, password).take
      	if user.present? 
