@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-
+#de
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0'
+gem 'rails', '3.1.0'
 # Use mysql as the database for Active Record
 gem 'rake', '10.3.1'
 # Use SCSS for stylesheets
@@ -21,7 +21,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc',          group: :doc
 gem 'devise'
 #Google Cloud Messaging for Android on Rails
 gem 'simple_gcm'
